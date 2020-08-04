@@ -80,12 +80,6 @@ if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
 
-  # ament_add_gtest(test_dummy test/test_dummy.cpp)
-  # if(TARGET test_dummy)
-  #   target_link_libraries(test_dummy ${PROJECT_NAME})
-  # endif()
-
-  # Igor
   # Test Node
   set(TEST_NODE_NAME "test_dummy")
 
@@ -95,15 +89,11 @@ if(BUILD_TESTING)
   ament_add_gtest(${DUMMY_GTEST}
     "test/test_dummy.cpp"
   )
+
+  # target_include_directories(${DUMMY_GTEST} PRIVATE include)
+  target_link_libraries(${DUMMY_GTEST} pendulum_controller_node)
   ament_target_dependencies(${TEST_NODE_NAME}
     "rclcpp"
-    "rclcpp_lifecycle"
-    "rclcpp_components"
-    "rcutils"
-    "lifecycle_msgs"
-    "pendulum_msgs_v2"
-    "sensor_msgs"
-    "pendulum_tools"
   )
 
 endif()
