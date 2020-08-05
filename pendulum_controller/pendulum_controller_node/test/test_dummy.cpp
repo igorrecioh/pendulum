@@ -17,8 +17,6 @@
 #include "rclcpp/rclcpp.hpp"
 #include "pendulum_controller_node/pendulum_controller_node.hpp"
 
-using rclcpp::executors::MultiThreadedExecutor;
-
 TEST(FirstTest, verify_namespace) {
   rclcpp::init(0, nullptr);
 
