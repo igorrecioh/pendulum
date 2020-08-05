@@ -14,13 +14,12 @@
 
 #include <gtest/gtest.h>
 #include <memory>
-#include <typeinfo>
 #include "rclcpp/rclcpp.hpp"
 #include "pendulum_controller_node/pendulum_controller_node.hpp"
 
 using rclcpp::executors::MultiThreadedExecutor;
 
-TEST(DummyTest, not_equal) {
+TEST(FirstTest, verify_namespace) {
   rclcpp::init(0, nullptr);
 
   auto pendulum_driver = std::make_shared<
