@@ -21,11 +21,10 @@
 using rclcpp::executors::MultiThreadedExecutor;
 
 TEST(DummyTest, not_equal) {
-  MultiThreadedExecutor executor;
+  rclcpp::init(0, nullptr);
+
   auto pendulum_driver = std::make_shared<
     pendulum::PendulumControllerNode>(rclcpp::NodeOptions());
-  std::cout << typeid(pendulum_driver).name() << std::endl;
-  executor.add_node(pendulum_driver->get_node_base_interface());
 
-  EXPECT_EQ(1, 1);
+  EXPECT_STREQ("/", pendulum_driver->get_namespace());
 }
